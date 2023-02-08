@@ -7,13 +7,13 @@ import java.io.Serializable;
 public class WheelsDto implements Serializable {
     private Long id;
     private Integer diameter;
-    private Long width;
+    private Double width;
     private Float offset;
     private String brand;
     private String model;
     private String material;
     private String finish;
-    private Long boltPattern;
+    private String boltPattern;
 
     public WheelsDto(Wheels wheels){
         if(wheels.getId() != null){

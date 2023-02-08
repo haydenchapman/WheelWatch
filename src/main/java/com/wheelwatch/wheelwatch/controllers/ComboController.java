@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("api/v1/controller")
+@RequestMapping("api/v1/combo")
 public class ComboController {
 
     @Autowired
@@ -23,7 +23,7 @@ public class ComboController {
         return comboService.getComboById(comboId);
     }
 
-    @GetMapping("/combo/")
+    @GetMapping
     public List<ComboDto> getAllCombos(){
         return comboService.getAllCombos();
     }

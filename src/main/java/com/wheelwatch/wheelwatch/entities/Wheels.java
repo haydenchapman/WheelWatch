@@ -21,7 +21,7 @@ public class Wheels {
     private Integer diameter;
 
     @Column(name = "width")
-    private Long width;
+    private Double width;
 
     @Column(name = "wheel_offset")
     private Float offset;
@@ -39,7 +39,7 @@ public class Wheels {
     private String finish;
 
     @Column(name = "boltPattern")
-    private Long boltPattern;
+    private String boltPattern;
 
     @ManyToOne
     @JsonBackReference

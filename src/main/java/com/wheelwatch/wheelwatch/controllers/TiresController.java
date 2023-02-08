@@ -17,13 +17,13 @@ public class TiresController {
     @Autowired
     TiresService tiresService;
 
-    @GetMapping("/users/userId")
-    public Optional<TiresDto> getTiresByUserId(@PathVariable Long userId){
-        return tiresService.getTiresById(userId);
-    }
+   // @GetMapping("/users/userId")
+   // public Optional<TiresDto> getTiresByUserId(@PathVariable Long userId){
+   //     return tiresService.getTiresById(userId);
+   // }
 
-    @GetMapping("/tires/tiresId")
-    public List<TiresDto> getAllTires(@PathVariable Long tiresId){
+    @GetMapping
+    public List<TiresDto> getAllTires(){
         return tiresService.getAllTires();
     }
 

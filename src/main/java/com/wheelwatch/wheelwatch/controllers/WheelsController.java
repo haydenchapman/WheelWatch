@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -22,8 +24,13 @@ public class WheelsController {
     }
 
     //get wheel by wheelId
-    @GetMapping("/wheels/wheelId")
-    public Optional<WheelsDto> getWheelsById(@PathVariable Long wheelId){
-        return wheelsService.getWheelsById(wheelId);
+//    @GetMapping("/wheels/wheelId")
+//    public Optional<WheelsDto> getWheelsById(@PathVariable Long wheelId){
+//        return wheelsService.getWheelsById(wheelId);
+//    }
+
+    @GetMapping
+    public List<WheelsDto> getAllWheels(){
+        return wheelsService.getAllWheels();
     }
 }
