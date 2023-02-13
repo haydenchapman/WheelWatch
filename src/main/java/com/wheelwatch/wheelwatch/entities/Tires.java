@@ -5,11 +5,13 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-@Entity
-@Table(name = "Tires")
+
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
+@Table(name = "Tires")
 public class Tires {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

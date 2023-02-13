@@ -15,16 +15,15 @@ import java.util.Optional;
 @RequestMapping("/api/v1/tires")
 public class TiresController {
     @Autowired
-    TiresService tiresService;
+    public TiresService tiresService;
 
-   // @GetMapping("/users/userId")
-   // public Optional<TiresDto> getTiresByUserId(@PathVariable Long userId){
-   //     return tiresService.getTiresById(userId);
-   // }
+   @GetMapping("/tireId")
+   public Optional<TiresDto> getTiresById(@PathVariable Long tireId){
+        return tiresService.getTiresById(tireId);
+   }
 
     @GetMapping
     public List<TiresDto> getAllTires(){
         return tiresService.getAllTires();
     }
-
 }

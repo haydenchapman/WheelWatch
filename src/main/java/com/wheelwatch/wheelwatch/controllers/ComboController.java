@@ -12,13 +12,13 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("api/v1/combo")
+@RequestMapping("/api/v1/combo" )
 public class ComboController {
 
     @Autowired
     ComboService comboService;
 
-    @GetMapping("/combo/comboId")
+    @GetMapping("/comboId")
     public Optional<ComboDto> getComboById(@PathVariable Long comboId){
         return comboService.getComboById(comboId);
     }

@@ -12,10 +12,10 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("api/v1/wheels")
+@RequestMapping("/api/v1/wheels")
 public class WheelsController {
     @Autowired
-    WheelsService wheelsService;
+    public WheelsService wheelsService;
 
     //get all wheels by userId
     @GetMapping("/user/userId")
@@ -24,10 +24,10 @@ public class WheelsController {
     }
 
     //get wheel by wheelId
-//    @GetMapping("/wheels/wheelId")
-//    public Optional<WheelsDto> getWheelsById(@PathVariable Long wheelId){
-//        return wheelsService.getWheelsById(wheelId);
-//    }
+    @GetMapping("/wheelId")
+    public Optional<WheelsDto> getWheelsById(@PathVariable Long wheelId){
+        return wheelsService.getWheelsById(wheelId);
+   }
 
     @GetMapping
     public List<WheelsDto> getAllWheels(){

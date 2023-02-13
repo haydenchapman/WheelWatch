@@ -16,25 +16,33 @@ const headers = {
     'Content-Type': 'application/json'
 }
 const baseUrl = 'http://localhost:8080/api/v1';
-//check //if(!userId){ //    window.location.href = "/login.html"; //} //logout
+//check
+if(!userId){    window.location.href = "/login.html";}
+
+// logout
 function handleLogout(){
     let c = document.cookie.split(";");
     for(let i in c){
-        document.cookie = /^[^=]+/.exec(c[i])[0]+"=;expires=Thu, 01 Jan 2077 00:00:00 GMT"
+        document.cookie = /^[^=]+/.exec(c[i])[0]+"=;expires=Thu, 01 Jan 1970 00:00:00 GMT"
     }
 }
+console.log(cookieArr)
+let welcome_user = document.getElementById("welcome")
+welcome_user.innerHTML = `Welcome back! ${username}!`
 
 //card creation helpers
 const createWheelCards = (array) =>{
     wheelContainer.innerHTML = ''
+    console.log(array)
     array.forEach(obj =>{
+        console.log(obj.boltPattern) ;
         let wheelCard = document.createElement("div")
         wheelCard.classList.add("m-2")
         wheelCard.innerHTML = `<div class="card d-flex" style="width: 18rem; height: 18rem;">
                                     <div class="card-body d-flex flex-column justify-content-between" style="height: available">
-                                        <p class="card-text">${obj.body}</p>
-                                        <div class="d-flex justify-content-between">
-                                            
+                                        <p class="card-text">"Bolt Pattern:"${obj.boltPattern}</p>
+                                        <p class="card-text">"Brand:"${obj.brand}</p>
+                                        <div class="d-flex justify-content-between"> 
                                         </div>
                                     </div>
                                 </div>
@@ -106,15 +114,8 @@ async function getAllCombos(){
 
 }
 
-async function getWheelsByUserId(userId) {
-    await fetch(`${baseUrl}/users/${userId}`, {method: "GET", headers: headers})
-        .then(response => response.json())
-        .then(data => createWheelCards(data))
-        .catch(err => console.error(err))
-}
-
 //yay
-//const allWheels = getAllWheels();
-//const allTires = getAllTires();
-//const allCombos = getAllCombos();
+let allWheels = getAllWheels();
+let allTires = getAllTires();
+let allCombos = getAllCombos();
 //const wheelsByUserId = getWheelsByUserId(userId);

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface TiresService {
+    //delete
     @Transactional
     void deleteTireById(Long tireId);
 
