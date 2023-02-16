@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,6 +14,7 @@ import lombok.NoArgsConstructor;
 public class Tires {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "diameter")
@@ -41,4 +41,6 @@ public class Tires {
     @ManyToOne
     @JsonBackReference
     private User user;
+
+
 }

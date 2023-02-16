@@ -12,6 +12,7 @@ let wheelBody = document.getElementById("wheel-body")
 const headers = {
     'Content-Type': 'application/json'
 }
+
 const baseUrl = 'http://localhost:8080/api/v1';
 
 //check
@@ -24,18 +25,26 @@ function handleLogout(){
         document.cookie = /^[^=]+/.exec(c[i])[0]+"=;expires=Thu, 01 Jan 1970 00:00:00 GMT"
     }
 }
+
 //cards
 const createWheelCards = (array) =>{
     wheelContainer.innerHTML = ''
-    console.log(array)
     array.forEach(obj =>{
-        console.log(obj.boltPattern) ;
+        console.log(array)
         let wheelCard = document.createElement("div")
         wheelCard.classList.add("m-2")
         wheelCard.innerHTML = `<div class="card d-flex" style="width: 18rem; height: 18rem;">
                                     <div class="card-body d-flex flex-column justify-content-between" style="height: available">
-                                        <p class="card-text">"Bolt Pattern:"${obj.boltPattern}</p>
-                                        <p class="card-text">"Brand:"${obj.brand}</p>
+                                    <ul>
+                                        <li class="card-text">Brand: ${obj.brand}</li>
+                                        <li class="card-text">Model: ${obj.model}</li>
+                                        <li class="card-text">Diameter: ${obj.diameter}</li>
+                                        <li class="card-text">Width: ${obj.width}</li>
+                                        <li class="card-text">Bolt Pattern: ${obj.boltPattern}</li>
+                                        <li class="card-text">Offset: +${obj.offset}</li>
+                                        <li class="card-text">Material: ${obj.material}</li>
+                                        <li class="card-text">Finish: ${obj.finish}</li>
+                                    </ul>
                                         <div class="d-flex justify-content-between"> 
                                         </div>
                                     </div>

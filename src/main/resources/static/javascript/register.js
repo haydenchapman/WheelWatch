@@ -19,11 +19,12 @@ const handleSubmit = async (e) =>{
     const response = await fetch("http://localhost:8080/api/v1/users/register",
         {method: "POST", body: JSON.stringify(bodyObj), headers: headers})
         .catch(err => console.error(err.message))
+
     const responseArr = await response.json()
 
     if (response.status === 200){
-        window.alert(`Successfully registered! Welcome to Wheel Watch ${username}`)
         window.location.replace(responseArr[0])
+        window.alert(`Successfully registered! Welcome to Wheel Watch ${username}`)
     }
 }
 
