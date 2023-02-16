@@ -42,5 +42,4 @@ public class Tires {
     @JsonBackReference
     private User user;
 
-
 }

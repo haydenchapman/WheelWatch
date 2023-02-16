@@ -2,8 +2,12 @@ package com.wheelwatch.wheelwatch.services;
 
 import com.wheelwatch.wheelwatch.dtos.ComboDto;
 import com.wheelwatch.wheelwatch.entities.Combo;
+import com.wheelwatch.wheelwatch.entities.Tires;
+import com.wheelwatch.wheelwatch.entities.Wheels;
 import com.wheelwatch.wheelwatch.repositories.ComboRepository;
 import com.wheelwatch.wheelwatch.repositories.UserRepository;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +22,10 @@ public class ComboServiceImpl implements ComboService {
     private UserRepository userRepository;
     @Autowired
     private ComboRepository comboRepository;
+
+    //SHOW TO ROBERT
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Transactional
     public void deleteComboById(Long comboId){
@@ -36,5 +44,15 @@ public class ComboServiceImpl implements ComboService {
             return Optional.of(new ComboDto(comboOptional.get()));
         }
         return Optional.empty();
+    }
+
+    //SHOW TO ROBERT!!
+    @Transactional
+    public ComboDto createCombo(Tires tires, Wheels wheels) {
+        Combo combo = new Combo();
+        combo.setTires(tires);
+        combo.setWheels(wheels);
+        entityManager.persist(combo);
+        return new ComboDto();
     }
 }
