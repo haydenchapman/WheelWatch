@@ -21,6 +21,7 @@ public class Config {
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
+
     //ADDED ALL OF THIS IDK WHAT IM DOING
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
@@ -35,7 +36,7 @@ public class Config {
     @Bean
     public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
         return new JpaTransactionManager(entityManagerFactory);
-    }
+     }
 
     private Properties hibernateProperties() {
         Properties props = new Properties();
@@ -45,4 +46,3 @@ public class Config {
         return props;
     }
 }
-

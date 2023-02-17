@@ -22,6 +22,5 @@ public class ComboDto implements Serializable {
         if (combo.getId() != null){
             this.id = combo.getId();
         }
-
     }
 }

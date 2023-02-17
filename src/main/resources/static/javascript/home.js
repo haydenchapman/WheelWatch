@@ -27,21 +27,21 @@ let welcome_user = document.getElementById("welcome")
 welcome_user.innerHTML = `Welcome back, ${username}!`
 
 //card creation helpers
-const createComboCards = (array) =>{
-    comboContainer.innerHTML = ''
-    console.log(array)
-    array.forEach(obj => {
-        let comboCard = document.createElement("div")
-        comboCard.classList.add("m-2")
-        comboCard.innerHTML = `<div class="card d-flex" style="width: 18rem; height: 18rem;">
-                                    <div class="card-body d-flex flex-column justify-content-between" style="height: available">
-                                    <p class="card-text">${obj.body}</p>
-                                    <div class="d-flex justify-content-between"</div>
-                                </div>
-                                </div>
-                                `
-    })
-}
+const createComboCards = (combos) => {
+    comboContainer.innerHTML = '';
+    combos.forEach(combo => {
+        const { tires, wheels } = combo;
+        const card = document.createElement('div');
+        card.classList.add('card', 'm-2');
+        card.innerHTML = `<div class="card-body">
+                                <h5 class="card-title">Combo Details</h5>
+                                <p class="card-text">${combo.tires} ${combo.wheels} ${combos.tires} ${combos.wheels}</p>
+                                <p class="card-text">Tires: ${tires.brand} ${tires.model} ${tires.width}</p>
+                                <p class="card-text">Wheels: ${wheels.brand} ${wheels.model} ${wheels.width}</p>
+                            </div>`;
+        comboContainer.appendChild(card);
+    });
+};
 
 //populate modal
 const populateModal = (obj) => {
@@ -51,8 +51,7 @@ const populateModal = (obj) => {
 async function getAllCombos(){
     await fetch(`${baseUrl}/combo`, {method:"GET",headers: headers})
         .then(response => response.json())
-        .then(data => createComboCards)
-
+        .then(data => createComboCards(data));
 }
 
 //yay
