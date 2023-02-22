@@ -44,6 +44,9 @@ const createWheelCards = (array) =>{
                                         <li class="card-text">Offset: +${obj.offset}</li>
                                         <li class="card-text">Material: ${obj.material}</li>
                                         <li class="card-text">Finish: ${obj.finish}</li>
+                                        <img class="img-fluid" src="${obj.imgUrl}">
+                                        
+                                        
                                     </ul>
                                         <div class="d-flex justify-content-between"> 
                                         </div>

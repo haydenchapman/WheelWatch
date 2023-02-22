@@ -19,6 +19,7 @@ public class WheelsDto implements Serializable {
     private String material;
     private String finish;
     private String boltPattern;
+    private String imgUrl;
 
     public WheelsDto(Wheels wheels){
         if(wheels.getId() != null){
@@ -47,6 +48,9 @@ public class WheelsDto implements Serializable {
         }
         if (wheels.getBoltPattern() != null){
             this.boltPattern = wheels.getBoltPattern();
+        }
+        if (wheels.getImgUrl() != null){
+            this.imgUrl = wheels.getImgUrl();
         }
     }
 }

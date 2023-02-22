@@ -40,4 +40,9 @@ public class ComboController {
         return comboService.getAllCombos();
     }
 
+    @PostMapping("/combo")
+    public void createCombo(Tires tires, Wheels wheels){
+        Combo combo = new Combo();
+    }
+
 }

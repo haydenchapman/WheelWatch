@@ -33,4 +33,5 @@ public class WheelsController {
     public List<WheelsDto> getAllWheels(){
         return wheelsService.getAllWheels();
     }
+
 }

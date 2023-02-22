@@ -42,6 +42,9 @@ public class Wheels {
     @Column(name = "boltPattern")
     private String boltPattern;
 
+    @Column(name = "imgUrl")
+    private String imgUrl;
+
     @ManyToOne
     @JsonBackReference
     private User user;
